@@ -2,11 +2,15 @@
 const conn = require("../db/conn");
 
 const insert = async (user) => {
+
+
+  console.log(user)
   try {
     const result = await conn.execute(
-      `INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, ativo) VALUES (?, ?, ?, ?, ?, ?)`,
-      [user.nome, user.sobrenome, user.email, user.telefone, user.senha, user.ativo]
+      `INSERT INTO usuarios (nome, sobrenome, email, retryEmail, ddd, telefone, senha, retrySenha, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [user.nome, user.sobrenome, user.email, user.retryEmail, user.ddd, user.telefone, user.senha, user.retrySenha, user.ativo]
     );
+
     return result; 
 
   } catch (error) {

@@ -8,6 +8,9 @@ function enviarDados() {
     });
 
 
+    console.log(jsonData)
+
+
     fetch('http://localhost:8080/user', {
         method: 'POST',
         headers: {

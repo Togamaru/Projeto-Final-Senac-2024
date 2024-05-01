@@ -54,11 +54,11 @@
                     <div class="form-group" id="divWths">
                         <label class="col-md-4 control-label" for="txtCelular">Celular</label>
                         <div class="col-md-4" style="width: 110px; text-align: center;">
-                        <input type="text" placeholder="(00)" maxlength="2" class="form_input" id="DDD" 
+                        <input type="text" placeholder="(00)" maxlength="2" class="form_input" id="ddd" name="ddd" 
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" onblur="this.value='('+ this.value +')'" onfocus="this.value=''"/>
                         </div>
                         <div class="col-md-4">
-                        <input id="celular" maxlength="9" name="celular" type="text" placeholder="Exemplo 00000-0000 ou 0000-0000" class="form_input" required="required"
+                        <input id="telefone" maxlength="9" name="telefone" type="text" placeholder="Exemplo 00000-0000 ou 0000-0000" class="form_input" required="required"
                         onblur="mascaraDeTelefone(this)" onfocus="this.value='', tirarHifen(this)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" > 
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <label class="col-md-4 control-label" for="txtRetrySenha">Confirme Senha</label>
                         <div class="col-md-4">
                           <input id="retrySenha" name="retrySenha" type="password" placeholder="Confirme sua senha" class="form_input" required="">
-                          <input type="hidden" value="1" id="ativo" name="ativo">
+                          <input type="hidden" value="0" id="ativo" name="ativo">
                         </div>
                       </div> 
                     
