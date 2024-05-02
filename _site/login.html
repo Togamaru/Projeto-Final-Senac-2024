@@ -31,10 +31,10 @@
         <div class="all">
             <div class="container">
                 <div class="card card-container">
-                    <form class="form-signin" id="cadFormulario">
+                    <form class="form-signin" id="cadFormulario" action="/login">
                         <span id="reauth-email" class="reauth-email"></span>
-                        <input type="text" id="login" name="login" class="form-control" placeholder="Login" required autofocus>
-                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+                        <input type="text" id="login" name="login" class="form-control" placeholder="digite seu email@email.com" required autofocus>
+                        <input type="password" id="senha" name="senha" class="form-control" placeholder="digite sua senha" required>
                         <div id="remember" class="checkbox">
                             <label>
                                 <input type="checkbox" value="remember-me"> Lembre-se de mim
@@ -42,7 +42,6 @@
                         </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onsubmit="buscarDados()">Entrar</button>
                     </form>
-                    <script src="../_js/scriptDB.js"></script>
                     <a href="../_site/cadastro.html" class="forgot-password">
                         <span class="material-symbols-outlined">
                             person_add

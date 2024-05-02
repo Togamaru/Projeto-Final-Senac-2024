@@ -7,10 +7,6 @@ function enviarDados() {
         jsonData[key] = value;
     });
 
-
-    console.log(jsonData)
-
-
     fetch('http://localhost:8080/user', {
         method: 'POST',
         headers: {
