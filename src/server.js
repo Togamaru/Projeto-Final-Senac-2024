@@ -1,5 +1,5 @@
 const app = require("../app.js");
-const connection = require("../src/db/conn.js");
+const connection = require("../src/db/conn");
 
 const PORT = 8080;
 

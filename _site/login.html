@@ -19,6 +19,7 @@
                 <li><a href="#" style="color: #000;">CSS</a></li>
                 <li><a href="#" style="color: #000;">JAVASCRIPT</a></li>
                 <li><a href="#" style="color: #000;">CONTATOS</a></li>
+                <li><a href="#" style="color: #000;">MINHA CONTA</a></li>
                 <li><a href="../index.html">SAIR
                     <span class="material-symbols-outlined">
                         logout
@@ -31,17 +32,20 @@
         <div class="all">
             <div class="container">
                 <div class="card card-container">
-                    <form class="form-signin" id="cadFormulario" action="/login">
+                    <form class="form-signin" id="cadFormulario">
                         <span id="reauth-email" class="reauth-email"></span>
-                        <input type="text" id="login" name="login" class="form-control" placeholder="digite seu email@email.com" required autofocus>
-                        <input type="password" id="senha" name="senha" class="form-control" placeholder="digite sua senha" required>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="digite seu email@email.com" required autofocus>
+                        <input type="password" id="senha" name="senha" class="form-control" placeholder="digite sua senha" required="required">
                         <div id="remember" class="checkbox">
                             <label>
                                 <input type="checkbox" value="remember-me"> Lembre-se de mim
                             </label>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onsubmit="buscarDados()">Entrar</button>
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="buscarDados()">Entrar</button>
                     </form>
+
+                    <script src="../_js/scriptDB.js"></script>
+                
                     <a href="../_site/cadastro.html" class="forgot-password">
                         <span class="material-symbols-outlined">
                             person_add
@@ -55,10 +59,8 @@
                         </span>
                         Esqueceu a senha?
                     </a>
-
                 </div>
             </div>
         </div>
-
     </body>
 </html>

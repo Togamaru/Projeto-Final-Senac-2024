@@ -218,14 +218,14 @@ footer p{
 
 }
 
-.submit, .reset { 
+.submit{ 
     width:700px; 
     float:left;
     display: block;
     padding: 5px 30px;
     border: none;
     outline: none;
-    background-color: #6fcffb;
+    background-color: #0d6e22;
     color: #fff;
     text-shadow: 0 0 5px rgb(0, 0, 0);
     font-family: inherit;
@@ -237,12 +237,45 @@ footer p{
     transition: all 0.3s; 
 
 }
-.submit:hover{ 
-    background-color: #444444;
-    transform: scale(1.03);
+.bntExcluir{
+    width:700px; 
+    float:left;
+    display: block;
+    padding: 5px 30px;
+    border: none;
+    outline: none;
+    background-color: #eb5008;
+    color: #fff;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+    font-family: inherit;
+    font-size: 25px;
+    font-family:'open_sansregular';
+    border-radius: 6px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: all 0.3s; 
 }
 
-.reset:hover{ 
+.reset{
+    width:700px; 
+    float:left;
+    display: block;
+    padding: 5px 30px;
+    border: none;
+    outline: none;
+    background-color: #ccc;
+    color: #000;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+    font-family: inherit;
+    font-size: 25px;
+    font-family:'open_sansregular';
+    border-radius: 6px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: all 0.3s; 
+}
+
+.submit:hover , .reset:hover, .bntExcluir:hover{ 
     background-color: #444444;
     transform: scale(1.03);
 }
