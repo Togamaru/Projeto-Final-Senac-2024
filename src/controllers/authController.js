@@ -21,12 +21,14 @@ async function registerUser(req, res) {
 async function loginUser(req, res) {
   const { email, senha } = req.body;
 
+
+  console.log(email, senha)
   try {
     const conn = await connection;
     const [rows] = await conn.execute('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
-    await conn.end();
 
-    if (rows.length === 1) {
+   // await conn.end();
+    if ([rows].length === 1) {
       res.status(200).json({ message: 'Login bem-sucedido' });
     } else {
       res.status(401).json({ error: 'Email ou senha incorretos' });
