@@ -1,12 +1,15 @@
 const express = require('express');
-const mysql = require('mysql2/promise');
 const bodyParser = require('body-parser');
 const app = express();
-const { registerUser, loginUser } = require('./control/auth');
 
+// Middleware para análise de corpo de solicitação
 app.use(bodyParser.json());
 
-app.post('/register', registerUser);
-app.post('/login', loginUser);
+// Rotas
+const routes = require('./routes/routes');
+app.use('/login', routes);
+
+// Outras rotas...
+// app.use('/outra-rota', outraRota);
 
 module.exports = app;

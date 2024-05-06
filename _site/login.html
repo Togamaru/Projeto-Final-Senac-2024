@@ -32,7 +32,7 @@
         <div class="all">
             <div class="container">
                 <div class="card card-container">
-                    <form class="form-signin" id="cadFormulario" onsubmit="loginUser();return false;">
+                    <form class="form-signin" name="loginForm" id="loginForm">
                         <span id="reauth-email" class="reauth-email"></span>
                         <input type="text" id="email" name="email" class="form-control" placeholder="digite seu email@email.com" required autofocus>
                         <input type="password" id="senha" name="senha" class="form-control" placeholder="digite sua senha" required="required">
@@ -41,9 +41,43 @@
                                 <input type="checkbox" value="remember-me"> Lembre-se de mim
                             </label>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="login()">Entrar</button>
                     </form>
-                    <script src="../src/app.js"></script>
+
+                    <script>
+                        function login() {
+                            const email = document.getElementById('email').value;
+                            const senha = document.getElementById('senha').value;
+                            
+                            if (!email && !senha) {
+                                alert("Email ou senha invalido");
+                            }
+
+                            const data = { email: email, senha: senha };
+                    
+
+                            fetch('http://localhost:8080/login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    window.location.href = "../_site/home.html";
+                                } else if (response.status === 401) {
+                                    alert("Email ou senha incorretos");
+                                } else {
+                                    throw new Error('Erro interno do servidor');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Erro:', error);
+                                alert("Erro interno do servidor " + error);
+                            });
+                        }
+                    </script>
 
                     <a href="../_site/cadastro.html" class="forgot-password">
                         <span class="material-symbols-outlined">
