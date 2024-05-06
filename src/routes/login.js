@@ -1,31 +1,25 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const connection = require("../db/conn");
+const connection = require("../src/db/conn");
 
-const app = express();
+app.post('/login', async (req, res) => {
+  const { email, senha } = req.body;
 
-app.use(bodyParser.json());
+  if (!email || !senha) {
+    return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
+  }
+  
+  try {
+    // Use a conexão importada do arquivo conn.js
+    const conn = await connection;
 
-app.post('/login', (req, res) => {
-    const { email, senha } = req.body;
-    
-    console.log(email, senha);
+    const [rows] = await conn.execute('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
 
-    connection.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha], (error, results, fields) => {
-        if (error) {
-            console.error('Erro ao executar a consulta:', error);
-            res.status(500).json({ error: 'Erro interno do servidor' });
-            return;
-        }
-
-        if (results.length > 0) {
-            res.json({ message: 'Login bem-sucedido!' });
-        } else {
-            res.status(401).json({ error: 'Credenciais inválidas!' });
-        }
-    });
-});
-
-app.listen(8080, () => {
-    console.log('Servidor rodando em http://localhost:8080');
+    if (rows.length > 0) {
+      return res.status(200).json({ message: 'Login bem-sucedido!' });
+    } else {
+      return res.status(401).json({ message: 'Credenciais inválidas.' });
+    }
+  } catch (error) {
+    console.error('Erro ao realizar login:', error);
+    return res.status(500).json({ message: 'Erro interno do servidor.' });
+  }
 });

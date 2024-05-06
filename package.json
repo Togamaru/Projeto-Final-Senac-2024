@@ -2,7 +2,7 @@
   "name": "projeto-final-senac-2024",
   "version": "1.0.0",
   "description": "Projeto final do curso javascript SENAC 2024",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon src/server.js"
   },
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",

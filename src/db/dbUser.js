@@ -1,9 +1,6 @@
-
 const conn = require("../db/conn");
 
 const insert = async (user) => {
-
-
   try {
     const result = await conn.execute(
       `INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, ativo) VALUES (?, ?, ?, ?, ?, ?)`,
@@ -64,5 +61,5 @@ const select = async () => {
     insert,
     select,
     delet,
-    update
+    update,
   };

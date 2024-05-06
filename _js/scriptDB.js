@@ -22,7 +22,7 @@ function enviarDados() {
     })
     .then(data => {
         console.log('Resposta do servidor:', data);
-        alert(data.message)
+        alert('Registro salvo com sucesso ' + data.message)
     })
     .catch(error => {
         console.error('Erro:', error);
@@ -33,11 +33,15 @@ function buscarDados() {
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
-    // Criar um objeto com os dados do formulário
-    const formData = { email, senha };
+    if (!email || !senha) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
 
+    const formData = { email, senha };
+    
     fetch('http://localhost:8080/user', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -52,7 +56,7 @@ function buscarDados() {
     .then(data => {
         console.log('Resposta do servidor:', data);
         if (data.message === 'Login bem-sucedido!') {
-            window.location.href = '/_site/home.html';
+            window.location.href = '../_site/home.html';
         } else {
             alert('Credenciais inválidas!');
         }
