@@ -3,12 +3,13 @@ const connection = require('../db/conn');
 
 // Função para registrar um novo usuário
 async function registerUser(req, res) {
-  const { email, senha } = req.body;
+  const { nome, sobrenome, email, ddd, telefone, senha, ativo } = req.body;
 
   try {
     const conn = await connection;
-    const [result] = await conn.execute('INSERT INTO usuarios (email, senha) VALUES (?, ?)', [email, senha]);
-    await conn.end();
+    const [result] = await conn.execute('INSERT INTO usuarios (nome, sobrenome, email, ddd, telefone, senha, ativo) VALUES (?, ?, ?, ?, ?, ?, ?)', [nome, sobrenome, email, ddd, telefone, senha, ativo]);
+  
+  //await conn.end();
 
     res.status(201).json({ message: 'Usuário registrado com sucesso' });
   } catch (error) {

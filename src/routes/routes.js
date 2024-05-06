@@ -8,6 +8,6 @@ const { loginUser, registerUser } = require('../controllers/authController');
 router.post('/', loginUser);
 
 // Rota para o registro de usuário
-router.post('/register', registerUser);
+router.post('/', registerUser);
 
 module.exports = router;

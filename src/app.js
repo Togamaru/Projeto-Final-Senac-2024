@@ -12,7 +12,6 @@ const routes = require('./routes/routes');
 
 app.use('/login', routes);
 app.use('/registre', routes);
-// Outras rotas...
 // app.use('/outra-rota', outraRota);
 
 module.exports = app;
