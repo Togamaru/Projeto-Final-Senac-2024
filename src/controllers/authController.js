@@ -22,8 +22,6 @@ async function registerUser(req, res) {
 async function loginUser(req, res) {
   const { email, senha } = req.body;
 
-
-  console.log(email, senha)
   try {
     const conn = await connection;
     const [rows] = await conn.execute('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);

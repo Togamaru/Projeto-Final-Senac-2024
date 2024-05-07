@@ -93,45 +93,13 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="bntSend"></label>
                       <div class="col-md-8">
-                        <button type="submit" id="bntSend" name="bntSend" class="submit" onclick="registre()">Enviar Cadastro</button>
+                        <button type="submit" id="bntSend" name="bntSend" class="submit" onclick="registerUser()">Enviar Cadastro</button>
                         <button type="reset" id="bntLimpar" name="bntLimpar" class="reset">Limpar Tudo</button>
                       </div>
                     </div>
                 </fieldset>
                 </form>
-                <script>
-                  function registre() {
-                    const formulario = document.getElementById("cadFormulario");
-                    const formData = new FormData(formulario);
-                    const jsonData = {};
-
-                    formData.forEach((value, key) => {
-                        jsonData[key] = value;
-                    });
-
-                    fetch('http://localhost:8080/registre', {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(jsonData)
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erro ao enviar dados');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Resposta do servidor:', data);
-                        alert('Registro salvo com sucesso ' + data.message)
-                    })
-                    .catch(error => {
-                        console.error('Erro:', error);
-                    });
-                  }
-              </script>
-                
+                <script src=""></script>  
         </div>
         <footer class="footer">
             <p class="pj2024">Projeto final Curso de programação JavaScript Senac 2024</p>
