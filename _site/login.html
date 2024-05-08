@@ -55,8 +55,6 @@
 
                             const data = { email: email, senha: senha };
                             
-                            console.log(data)
-
                             fetch('http://localhost:8080/login', {
                                 method: 'POST',
                                 headers: {
@@ -68,6 +66,8 @@
 
                                 console.log(response)
                                 if (response.ok) {
+                                    var user = {email: email,};
+                                    sessionStorage.setItem('user', JSON.stringify(user));
                                     window.location.href = "../_site/home.html";
                                 } else if (response.status === 401) {
                                     alert("Email ou senha incorretos");

@@ -23,10 +23,20 @@
                         </span>
                     </a>
                 </li>
-            </ul> 
+            </ul>
+            <script>
+                var user = sessionStorage.getItem('user');
+                
+                if (user) {
+                    var userData = JSON.parse(user);
+                    document.write('<p>Olá, ' + userData.email + '!</p>');
+                } else {
+                    window.location.href = '../index.html';
+                    document.write('<p><strong>Bem-vindo</strong> Olá, visitante! Faça login para ver todo conteúdo.</p>');
+                }
+            </script>     
         </div>
         <div class="all">
-            
             <section class="secjs">
                 <h1>O que é JavaScript? História do JavaScript</h1>
                 <p>Linguagem de Programação Versátil o JavaScript é uma linguagem de programação fundamental para o 
