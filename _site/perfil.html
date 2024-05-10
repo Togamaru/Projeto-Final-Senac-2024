@@ -68,7 +68,7 @@
                 </fieldset>
                 </form>  
                 <script>
-                  function login() {
+                  function updateConta() {
                       const ddd = document.getElementById('ddd').value;
                       const telefone = document.getElementById('telefone').value;
                       const email = document.getElementById('email').value;
@@ -76,13 +76,21 @@
 
                       const data = { email: email, senha: senha };
                       
-                      fetch('http://localhost:8080/login', {
+                      fetch('http://localhost:8080/updateConta', {
                           method: 'POST',
                           headers: {
                               'Content-Type': 'application/json'
                           },
                           body: JSON.stringify(data)
                       })
+                      function buscarDados() {
+    fetch(`http://localhost:8080/updateConta ${email}`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    })
                       .then(response => {
 
                           console.log(response)
